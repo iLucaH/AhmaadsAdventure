@@ -1,6 +1,7 @@
 package me.ilucah.ahmaadsadventure.scenes.implementation;
 
 import me.ilucah.ahmaadsadventure.camera.GameCamera;
+import me.ilucah.ahmaadsadventure.display.render.RenderFactory;
 import me.ilucah.ahmaadsadventure.entity.implementation.Player;
 import me.ilucah.ahmaadsadventure.entity.model.Entity;
 import me.ilucah.ahmaadsadventure.handler.Handler;
@@ -35,6 +36,6 @@ public class GameScene extends Scene {
 
     @Override
     public void render(Graphics g) {
-        Level.getLevel().render(g);
+        RenderFactory.getThreadPool().submit(() -> Level.getLevel().render(g));
     }
 }
