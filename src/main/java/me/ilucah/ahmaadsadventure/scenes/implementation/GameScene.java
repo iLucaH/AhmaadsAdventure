@@ -36,6 +36,6 @@ public class GameScene extends Scene {
 
     @Override
     public void render(Graphics g) {
-        RenderFactory.getThreadPool().submit(() -> Level.getLevel().render(g));
+        Level.getLevel().render(g);
     }
 }

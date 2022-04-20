@@ -75,8 +75,8 @@ public class Game implements Runnable {
         // Draw Here!
 
         if (Scene.getScene() != null) {
-            Scene.getScene().render(g);
-            RenderFactory.getRenders().forEachOrdered(ro -> ro.render().accept(g));
+            RenderFactory.getThreadPool().submit(() -> Scene.getScene().render(g));
+            RenderFactory.getThreadPool().submit(() -> RenderFactory.getRenders().forEachOrdered(ro -> ro.render().accept(g)));
         }
 
         bs.show();
