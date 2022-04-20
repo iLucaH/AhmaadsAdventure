@@ -3,10 +3,15 @@ package me.ilucah.ahmaadsadventure.display.render;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.concurrent.*;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class RenderFactory {
+
+    private static final ExecutorService threadPoolExecutor = new ThreadPoolExecutor(50, 50,
+            0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<Runnable>());
 
     private static ArrayList<RenderingObject> renders = new ArrayList<>();
 
@@ -28,5 +33,9 @@ public class RenderFactory {
 
     public static Optional<RenderingObject> seek(Consumer<Graphics> g) {
         return renders.stream().filter(r -> r != null).filter(r -> r.render() == g).findAny();
+    }
+
+    public static ExecutorService getThreadPool() {
+        return threadPoolExecutor;
     }
 }
