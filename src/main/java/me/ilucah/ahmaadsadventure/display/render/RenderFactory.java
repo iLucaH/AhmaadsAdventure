@@ -27,6 +27,6 @@ public class RenderFactory {
     }
 
     public static Optional<RenderingObject> seek(Consumer<Graphics> g) {
-        return renders.stream().filter(r -> r.render() == g).findAny();
+        return renders.stream().filter(r -> r != null).filter(r -> r.render() == g).findAny();
     }
 }
