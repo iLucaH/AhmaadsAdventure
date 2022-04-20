@@ -1,5 +1,6 @@
 package me.ilucah.ahmaadsadventure.scenes.level.model;
 
+import me.ilucah.ahmaadsadventure.entity.EntityManager;
 import me.ilucah.ahmaadsadventure.handler.Handler;
 
 import java.awt.*;
@@ -27,4 +28,6 @@ public abstract class Level {
     public abstract void tick();
 
     public abstract void render(Graphics g);
+
+    public abstract EntityManager getEntityManager();
 }
