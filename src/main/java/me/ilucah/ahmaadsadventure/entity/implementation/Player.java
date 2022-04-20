@@ -11,6 +11,7 @@ import me.ilucah.ahmaadsadventure.gfx.image.animation.AnimationFactory;
 import me.ilucah.ahmaadsadventure.gfx.image.animation.AnimatorEngine;
 import me.ilucah.ahmaadsadventure.gfx.objects.InventoryPanel;
 import me.ilucah.ahmaadsadventure.handler.Handler;
+import me.ilucah.ahmaadsadventure.scenes.level.model.Level;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -81,7 +82,7 @@ public class Player extends Entity implements Movable, InventoryHolder {
 
     @Override
     public void tick() {
-        boolean isColliding = (handler.getGame().getGameScene().getEntityManager().getEntities().stream().filter(e -> {
+        boolean isColliding = (Level.getLevel().getEntityManager().getEntities().stream().filter(e -> {
             if (!(e instanceof Solidified))
                 return false;
             return (e.getCollisionBounds().intersects(getMovementCollisionBounds()));
@@ -124,7 +125,7 @@ public class Player extends Entity implements Movable, InventoryHolder {
         // physics
         if (hasGravity) {
             if (jumping == false) {
-                Optional<Entity> floor = (handler.getGame().getGameScene().getEntityManager().getEntities().stream().filter(e -> {
+                Optional<Entity> floor = (Level.getLevel().getEntityManager().getEntities().stream().filter(e -> {
                     if (!(e instanceof Solidified))
                         return false;
                     if (e.getCollisionBounds().intersects(getCollisionBounds())) {
@@ -141,7 +142,7 @@ public class Player extends Entity implements Movable, InventoryHolder {
                 if (floor.isPresent() == false) {
                     Rectangle newBounds = new Rectangle(getMovementCollisionBounds());
                     newBounds.add(0, 1 + fallVelocity);
-                    if (handler.getGame().getGameScene().getEntityManager().getEntities().stream().filter(e -> {
+                    if (Level.getLevel().getEntityManager().getEntities().stream().filter(e -> {
                         return (e.getCollisionBounds().intersects(newBounds));
                     }).findFirst().isPresent()) {
                         if (isOnGround == false)
