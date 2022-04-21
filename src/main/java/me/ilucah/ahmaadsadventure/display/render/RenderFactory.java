@@ -1,7 +1,6 @@
 package me.ilucah.ahmaadsadventure.display.render;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.concurrent.*;
 import java.util.function.Consumer;
@@ -13,13 +12,14 @@ public class RenderFactory {
             0L, TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<>());
 
-    private static ArrayList<RenderingObject> renders = new ArrayList<>();
+    private static LinkedTransferQueue<RenderingObject> renders = new LinkedTransferQueue<>();
 
     public static void clear() {
         renders.clear();
     }
 
     public static void add(RenderingObject object) {
+        object.setId(renders.size() + 1F);
         renders.add(object);
     }
 
@@ -32,7 +32,7 @@ public class RenderFactory {
     }
 
     public static Optional<RenderingObject> seek(Consumer<Graphics> g) {
-        return renders.stream().filter(r -> r != null).filter(r -> r.render() == g).findAny();
+        return renders.stream().filter(r -> r != null).filter(r -> r.render() == g).sorted((s, a) -> s.getId() < a.getId() ? 1 : -1).findFirst();
     }
 
     public static ExecutorService getThreadPool() {

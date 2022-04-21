@@ -1,7 +1,5 @@
 package me.ilucah.ahmaadsadventure.event.generic.model;
 
-import me.ilucah.ahmaadsadventure.event.generic.implementation.LevelChangeEvent;
-
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
