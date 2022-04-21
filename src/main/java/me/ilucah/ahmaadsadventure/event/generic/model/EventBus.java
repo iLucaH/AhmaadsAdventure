@@ -1,5 +1,7 @@
 package me.ilucah.ahmaadsadventure.event.generic.model;
 
+import me.ilucah.ahmaadsadventure.event.generic.implementation.LevelChangeEvent;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -22,7 +24,7 @@ public class EventBus {
      * @param clazz The class of the event you are listening for.
      * @param listener The listener class.
      */
-    public <T extends GenericEvent> void registerEvent(Class<T> clazz, EventListener<T> listener) {
+    public <T extends GenericEvent> void subscribe(Class<T> clazz, EventListener<T> listener) {
         if (!listeners.containsKey(clazz))
             listeners.put(clazz, new LinkedList<>());
         listeners.get(clazz).add(listener);
@@ -30,5 +32,9 @@ public class EventBus {
 
     public Collection<EventListener> collectEvents(Class clazz) {
         return listeners.containsKey(clazz) ? listeners.get(clazz).stream().collect(Collectors.toList()) : Collections.EMPTY_LIST;
+    }
+
+    public <T extends EventListener> Optional<List<EventListener>> getHandlers(Class<T> clazz) {
+        return Optional.ofNullable(listeners.get(clazz));
     }
 }
