@@ -1,5 +1,7 @@
 package me.ilucah.ahmaadsadventure.event.generic.model;
 
+import me.ilucah.ahmaadsadventure.event.generic.implementation.GenericInteractionEvent;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -32,7 +34,7 @@ public class EventBus {
         return listeners.containsKey(clazz) ? listeners.get(clazz).stream().collect(Collectors.toList()) : Collections.EMPTY_LIST;
     }
 
-    public <T extends EventListener> Optional<List<EventListener>> getHandlers(Class<T> clazz) {
+    public <T extends GenericEvent> Optional<List<EventListener>> getHandlers(Class<T> clazz) {
         return Optional.ofNullable(listeners.get(clazz));
     }
 }

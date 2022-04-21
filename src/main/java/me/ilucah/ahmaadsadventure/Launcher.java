@@ -1,6 +1,5 @@
 package me.ilucah.ahmaadsadventure;
 
-import me.ilucah.ahmaadsadventure.gfx.sound.SoundPlayer;
 import me.ilucah.ahmaadsadventure.handler.Game;
 
 public class Launcher {

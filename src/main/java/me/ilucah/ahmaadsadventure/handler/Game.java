@@ -12,6 +12,12 @@ import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable {
 
+    public static Game getGame() {
+        return game;
+    }
+
+    private static Game game;
+
     private Display display;
     private int width, height;
     public String title;
@@ -33,6 +39,7 @@ public class Game implements Runnable {
     private Handler handler;
 
     public Game(String title, int width, int height) {
+        game = this;
         this.width = width;
         this.height = height;
         this.title = title;
@@ -135,6 +142,10 @@ public class Game implements Runnable {
 
     public GameScene getGameScene() {
         return gameScene;
+    }
+
+    public Handler getHandler() {
+        return handler;
     }
 
     public synchronized void start() {

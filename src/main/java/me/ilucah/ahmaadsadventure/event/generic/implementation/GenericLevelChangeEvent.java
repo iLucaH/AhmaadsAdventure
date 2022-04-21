@@ -5,14 +5,14 @@ import me.ilucah.ahmaadsadventure.event.generic.model.GenericEvent;
 import me.ilucah.ahmaadsadventure.event.generic.model.RepetitiveEvent;
 import me.ilucah.ahmaadsadventure.level.model.Level;
 
-public class LevelChangeEvent implements GenericEvent, CancellableEvent, RepetitiveEvent {
+public class GenericLevelChangeEvent implements GenericEvent, CancellableEvent, RepetitiveEvent {
 
     private final Level oldLevel;
     private Level newLevel;
 
     private boolean isCancelled;
 
-    public LevelChangeEvent(Level oldLevel, Level newLevel) {
+    public GenericLevelChangeEvent(Level oldLevel, Level newLevel) {
         this.oldLevel = oldLevel;
         this.newLevel = newLevel;
     }
