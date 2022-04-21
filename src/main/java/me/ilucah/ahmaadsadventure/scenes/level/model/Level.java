@@ -3,7 +3,7 @@ package me.ilucah.ahmaadsadventure.scenes.level.model;
 import me.ilucah.ahmaadsadventure.entity.EntityManager;
 import me.ilucah.ahmaadsadventure.handler.Handler;
 
-import java.awt.*;
+import java.awt.Graphics;
 
 public abstract class Level {
 

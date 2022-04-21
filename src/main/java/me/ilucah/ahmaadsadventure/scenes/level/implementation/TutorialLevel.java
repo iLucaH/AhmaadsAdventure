@@ -5,6 +5,7 @@ import me.ilucah.ahmaadsadventure.entity.EntityManager;
 import me.ilucah.ahmaadsadventure.entity.implementation.Barrier;
 import me.ilucah.ahmaadsadventure.entity.implementation.Zombie;
 import me.ilucah.ahmaadsadventure.entity.model.Entity;
+import me.ilucah.ahmaadsadventure.event.generic.implementation.LevelChangeEvent;
 import me.ilucah.ahmaadsadventure.handler.Handler;
 import me.ilucah.ahmaadsadventure.scenes.level.model.Level;
 
@@ -29,8 +30,12 @@ public class TutorialLevel extends Level {
 
     @Override
     public void tick() {
-        if (handler.getKeyManager().right)
-            Level.setLevel(handler.getLevelManager().getLevel(2F).getLevel());
+        if (handler.getKeyManager().right) {
+            Level level = handler.getLevelManager().getLevel(2F).getLevel();
+            LevelChangeEvent event = new LevelChangeEvent(Level.getLevel(), level);
+            handler.getEventBus().submit(event);
+            Level.setLevel(event.getNewLevel());
+        }
         for (Entity entity : entityManager.getEntities()) {
             RenderFactory.getThreadPool().submit(() -> entity.tick());
         }

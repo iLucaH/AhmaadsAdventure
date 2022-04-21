@@ -1,6 +1,6 @@
 package me.ilucah.ahmaadsadventure.display.render;
 
-import java.awt.*;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.concurrent.*;
@@ -11,7 +11,7 @@ public class RenderFactory {
 
     private static final ExecutorService threadPoolExecutor = new ThreadPoolExecutor(50, 50,
             0L, TimeUnit.MILLISECONDS,
-            new LinkedBlockingQueue<Runnable>());
+            new LinkedBlockingQueue<>());
 
     private static ArrayList<RenderingObject> renders = new ArrayList<>();
 

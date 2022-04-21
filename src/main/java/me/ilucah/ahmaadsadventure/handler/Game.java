@@ -58,7 +58,7 @@ public class Game implements Runnable {
         keyManager.tick();
 
         if (Scene.getScene() != null) {
-            Scene.getScene().tick();
+            RenderFactory.getThreadPool().submit(() -> Scene.getScene().tick());
         }
     }
 
@@ -75,6 +75,7 @@ public class Game implements Runnable {
         if (Scene.getScene() != null) {
             RenderFactory.getThreadPool().submit(() -> Scene.getScene().render(g));
             RenderFactory.getThreadPool().submit(() -> RenderFactory.getRenders().forEachOrdered(ro -> ro.render().accept(g)));
+            RenderFactory.clear();
         }
 
         bs.show();
