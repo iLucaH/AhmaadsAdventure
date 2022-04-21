@@ -3,7 +3,7 @@ package me.ilucah.ahmaadsadventure.event.generic.implementation;
 import me.ilucah.ahmaadsadventure.event.generic.model.CancellableEvent;
 import me.ilucah.ahmaadsadventure.event.generic.model.GenericEvent;
 import me.ilucah.ahmaadsadventure.event.generic.model.RepetitiveEvent;
-import me.ilucah.ahmaadsadventure.scenes.level.model.Level;
+import me.ilucah.ahmaadsadventure.level.model.Level;
 
 public class LevelChangeEvent implements GenericEvent, CancellableEvent, RepetitiveEvent {
 

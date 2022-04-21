@@ -13,7 +13,7 @@ import me.ilucah.ahmaadsadventure.gfx.image.animation.AnimationFactory;
 import me.ilucah.ahmaadsadventure.gfx.image.animation.AnimatorEngine;
 import me.ilucah.ahmaadsadventure.gfx.objects.InventoryPanel;
 import me.ilucah.ahmaadsadventure.handler.Handler;
-import me.ilucah.ahmaadsadventure.scenes.level.model.Level;
+import me.ilucah.ahmaadsadventure.level.model.Level;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

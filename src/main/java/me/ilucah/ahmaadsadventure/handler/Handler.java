@@ -3,7 +3,7 @@ package me.ilucah.ahmaadsadventure.handler;
 import me.ilucah.ahmaadsadventure.event.generic.model.EventBus;
 import me.ilucah.ahmaadsadventure.input.KeyManager;
 import me.ilucah.ahmaadsadventure.input.MouseManager;
-import me.ilucah.ahmaadsadventure.scenes.level.LevelManager;
+import me.ilucah.ahmaadsadventure.level.LevelManager;
 
 public class Handler {
 

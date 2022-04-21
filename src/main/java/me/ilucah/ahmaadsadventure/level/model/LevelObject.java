@@ -1,4 +1,4 @@
-package me.ilucah.ahmaadsadventure.scenes.level.model;
+package me.ilucah.ahmaadsadventure.level.model;
 
 public class LevelObject {
 

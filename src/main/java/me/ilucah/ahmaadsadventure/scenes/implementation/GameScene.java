@@ -1,12 +1,10 @@
 package me.ilucah.ahmaadsadventure.scenes.implementation;
 
 import me.ilucah.ahmaadsadventure.camera.GameCamera;
-import me.ilucah.ahmaadsadventure.display.render.RenderFactory;
 import me.ilucah.ahmaadsadventure.entity.implementation.Player;
-import me.ilucah.ahmaadsadventure.entity.model.Entity;
 import me.ilucah.ahmaadsadventure.handler.Handler;
 import me.ilucah.ahmaadsadventure.scenes.Scene;
-import me.ilucah.ahmaadsadventure.scenes.level.model.Level;
+import me.ilucah.ahmaadsadventure.level.model.Level;
 
 import java.awt.*;
 

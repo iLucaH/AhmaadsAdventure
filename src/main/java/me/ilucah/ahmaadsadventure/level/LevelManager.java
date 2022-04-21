@@ -1,11 +1,10 @@
-package me.ilucah.ahmaadsadventure.scenes.level;
+package me.ilucah.ahmaadsadventure.level;
 
 import me.ilucah.ahmaadsadventure.handler.Handler;
-import me.ilucah.ahmaadsadventure.scenes.level.implementation.Level1;
-import me.ilucah.ahmaadsadventure.scenes.level.implementation.TutorialLevel;
-import me.ilucah.ahmaadsadventure.scenes.level.model.LevelObject;
+import me.ilucah.ahmaadsadventure.level.implementation.Level1;
+import me.ilucah.ahmaadsadventure.level.model.LevelObject;
+import me.ilucah.ahmaadsadventure.level.implementation.TutorialLevel;
 
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 public class LevelManager {

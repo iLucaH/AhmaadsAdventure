@@ -1,4 +1,4 @@
-package me.ilucah.ahmaadsadventure.scenes.level.model;
+package me.ilucah.ahmaadsadventure.level.model;
 
 import me.ilucah.ahmaadsadventure.entity.EntityManager;
 import me.ilucah.ahmaadsadventure.handler.Handler;
