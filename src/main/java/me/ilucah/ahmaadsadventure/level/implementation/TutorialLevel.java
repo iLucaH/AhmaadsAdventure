@@ -6,6 +6,7 @@ import me.ilucah.ahmaadsadventure.entity.implementation.Barrier;
 import me.ilucah.ahmaadsadventure.entity.implementation.Zombie;
 import me.ilucah.ahmaadsadventure.entity.model.Entity;
 import me.ilucah.ahmaadsadventure.event.generic.implementation.LevelChangeEvent;
+import me.ilucah.ahmaadsadventure.gfx.sound.SoundPlayer;
 import me.ilucah.ahmaadsadventure.handler.Handler;
 import me.ilucah.ahmaadsadventure.level.model.Level;
 
@@ -35,6 +36,7 @@ public class TutorialLevel extends Level {
             LevelChangeEvent event = new LevelChangeEvent(Level.getLevel(), level);
             handler.getEventBus().submit(event);
             Level.setLevel(event.getNewLevel());
+            SoundPlayer.playSound("audio/suspencful.wav");
         }
         for (Entity entity : entityManager.getEntities()) {
             RenderFactory.getThreadPool().submit(() -> entity.tick());

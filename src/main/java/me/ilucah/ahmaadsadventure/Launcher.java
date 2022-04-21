@@ -7,7 +7,7 @@ public class Launcher {
 
     public static void main(String[] args) {
         Game game = new Game("Ahmaad's Adventure", 1980, 1080);
-        SoundPlayer.playSound("mainsound.wav");
+        //SoundPlayer.playSound("audio/mainsound.wav");
         game.start();
     }
 }
