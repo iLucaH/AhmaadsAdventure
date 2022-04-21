@@ -3,7 +3,7 @@ package me.ilucah.ahmaadsadventure.entity.implementation;
 import me.ilucah.ahmaadsadventure.entity.model.Entity;
 import me.ilucah.ahmaadsadventure.entity.model.Glowable;
 import me.ilucah.ahmaadsadventure.entity.model.Solidified;
-import me.ilucah.ahmaadsadventure.event.entity.EntityInteractEvent;
+import me.ilucah.ahmaadsadventure.event.bounded.entity.EntityInteractEvent;
 
 import java.awt.*;
 

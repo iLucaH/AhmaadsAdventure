@@ -1,7 +1,7 @@
 package me.ilucah.ahmaadsadventure.entity.model;
 
 import me.ilucah.ahmaadsadventure.entity.model.location.Location;
-import me.ilucah.ahmaadsadventure.event.entity.EntityInteractEvent;
+import me.ilucah.ahmaadsadventure.event.bounded.entity.EntityInteractEvent;
 
 import java.awt.*;
 

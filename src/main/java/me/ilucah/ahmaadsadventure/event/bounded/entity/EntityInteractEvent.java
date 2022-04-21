@@ -1,9 +1,9 @@
-package me.ilucah.ahmaadsadventure.event.entity;
+package me.ilucah.ahmaadsadventure.event.bounded.entity;
 
 import me.ilucah.ahmaadsadventure.entity.model.Entity;
-import me.ilucah.ahmaadsadventure.event.Event;
+import me.ilucah.ahmaadsadventure.event.bounded.BoundedEvent;
 
-public class EntityInteractEvent implements Event {
+public class EntityInteractEvent implements BoundedEvent {
 
     private Class handle;
     private Entity interactingEntity;

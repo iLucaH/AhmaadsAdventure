@@ -10,6 +10,7 @@ public abstract class Level {
     private static Level currentState = null;
 
     public static void setLevel(Level state) {
+        state.start();
         currentState = state;
     }
 
@@ -24,6 +25,8 @@ public abstract class Level {
     public Level(Handler handler) {
         this.handler = handler;
     }
+
+    public abstract void start();
 
     public abstract void tick();
 

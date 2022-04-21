@@ -1,5 +1,6 @@
 package me.ilucah.ahmaadsadventure.handler;
 
+import me.ilucah.ahmaadsadventure.event.generic.model.EventBus;
 import me.ilucah.ahmaadsadventure.input.KeyManager;
 import me.ilucah.ahmaadsadventure.input.MouseManager;
 import me.ilucah.ahmaadsadventure.scenes.level.LevelManager;
@@ -9,9 +10,12 @@ public class Handler {
     private Game game;
     private LevelManager levelManager;
 
+    private final EventBus eventBus;
+
     public Handler(Game game){
         this.game = game;
         levelManager = new LevelManager(this);
+        eventBus = new EventBus();
     }
 
     public KeyManager getKeyManager(){
@@ -42,4 +46,7 @@ public class Handler {
         return levelManager;
     }
 
+    public EventBus getEventBus() {
+        return eventBus;
+    }
 }

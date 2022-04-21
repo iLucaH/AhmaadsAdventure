@@ -38,4 +38,8 @@ public class GameScene extends Scene {
     public void render(Graphics g) {
         Level.getLevel().render(g);
     }
+
+    public Player getPlayer() {
+        return player;
+    }
 }

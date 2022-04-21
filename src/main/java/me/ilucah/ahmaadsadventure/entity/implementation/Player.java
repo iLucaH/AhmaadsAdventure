@@ -4,7 +4,9 @@ import me.ilucah.ahmaadsadventure.camera.GameCamera;
 import me.ilucah.ahmaadsadventure.entity.model.*;
 import me.ilucah.ahmaadsadventure.entity.model.inventory.Inventory;
 import me.ilucah.ahmaadsadventure.entity.model.inventory.InventoryFactory;
-import me.ilucah.ahmaadsadventure.event.entity.EntityInteractEvent;
+import me.ilucah.ahmaadsadventure.entity.model.location.Location;
+import me.ilucah.ahmaadsadventure.event.bounded.entity.EntityInteractEvent;
+import me.ilucah.ahmaadsadventure.event.generic.implementation.GenericInteractionEvent;
 import me.ilucah.ahmaadsadventure.gfx.image.PathedImage;
 import me.ilucah.ahmaadsadventure.gfx.image.animation.Animation;
 import me.ilucah.ahmaadsadventure.gfx.image.animation.AnimationFactory;
@@ -184,6 +186,7 @@ public class Player extends Entity implements Movable, InventoryHolder {
     public void onInteract(EntityInteractEvent que) {
         if (!(que.getInteractingEntity() instanceof Glowable))
             return;
+        handler.getEventBus().submit(new GenericInteractionEvent(this, que.getInteractingEntity(), que.getInteractingEntity().getLocation()));
         Glowable entity = (Glowable) que.getInteractingEntity();
         entity.setGlowing(!entity.isGlowing());
         entity.setColor(new Color(ThreadLocalRandom.current().nextInt(255) + 1, ThreadLocalRandom.current().nextInt(255) + 1, ThreadLocalRandom.current().nextInt(255) + 1));
@@ -260,5 +263,11 @@ public class Player extends Entity implements Movable, InventoryHolder {
 
     public int[] getVelocityParset() {
         return velocityParset;
+    }
+
+    public void setOffsetLocation(Location location) {
+        setLocation(location);
+        camera.addYOffset(location.getLocY());
+        camera.addXOffset(location.getLocX());
     }
 }

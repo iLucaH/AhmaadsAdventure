@@ -2,7 +2,7 @@ package me.ilucah.ahmaadsadventure.entity.implementation;
 
 import me.ilucah.ahmaadsadventure.entity.model.Entity;
 import me.ilucah.ahmaadsadventure.entity.model.location.VisualPosition;
-import me.ilucah.ahmaadsadventure.event.entity.EntityInteractEvent;
+import me.ilucah.ahmaadsadventure.event.bounded.entity.EntityInteractEvent;
 import me.ilucah.ahmaadsadventure.scenes.level.model.Level;
 
 import java.awt.*;
@@ -55,6 +55,8 @@ public class Zombie extends Entity {
     public void searchEntities() {
         float view = maxViewDistance * positionalView.getView();
         for (Entity entity : Level.getLevel().getEntityManager().getEntities()) {
+            if (!(entity instanceof Player))
+                continue;
         }
     }
 }
