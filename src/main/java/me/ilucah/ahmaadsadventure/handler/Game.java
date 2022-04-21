@@ -148,6 +148,10 @@ public class Game implements Runnable {
         return handler;
     }
 
+    public Display getDisplay() {
+        return display;
+    }
+
     public synchronized void start() {
         if (running)
             return;
