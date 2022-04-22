@@ -4,9 +4,12 @@ import me.ilucah.ahmaadsadventure.handler.Game;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 public class CaptureDirectory {
@@ -120,6 +123,24 @@ public class CaptureDirectory {
             }
         });
         rD.start(thread);
+    }
+
+    public void stopRecording(float id, File outputFile) {
+        Optional<RecordingDevice> oD = Optional.ofNullable(getRecordingDevice(id));
+        if (!oD.isPresent())
+            throw new IllegalArgumentException("Unknown recording id: " + id + "!");
+        RecordingDevice rD = oD.get();
+        rD.stop();
+        try {
+            if (!outputFile.exists())
+                outputFile.createNewFile();
+            rD.encode(outputFile);
+        } catch (IOException e) {
+            Logger.getGlobal().info("Failed to encode video " + id + " to output file.");
+            e.printStackTrace();
+            return;
+        }
+        Logger.getGlobal().info("Recording " + id + " has stopped.");
     }
 
     public float createRecordingDevice(Rectangle recordingBounds) {

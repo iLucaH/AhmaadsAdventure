@@ -1,8 +1,12 @@
 package me.ilucah.ahmaadsadventure.gfx.image.capture;
 
+import org.jcodec.api.awt.AWTSequenceEncoder;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class RecordingDevice {
@@ -23,12 +27,13 @@ public class RecordingDevice {
         images.add(image);
     }
 
-    public void renderGraphics() {
-        // compile here
-    }
-
-    public void build(File outputFile) {
-        // save to file here
+    public void encode(File outputFile) throws IOException {
+        AWTSequenceEncoder encoder = AWTSequenceEncoder.createSequenceEncoder(outputFile, 60);
+        Iterator<BufferedImage> i = images.iterator();
+        while (i.hasNext()) {
+            encoder.encodeImage(i.next());
+        }
+        encoder.finish();
     }
 
     public synchronized Rectangle getRecordingBounds() {

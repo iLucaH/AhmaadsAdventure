@@ -5,16 +5,21 @@ import me.ilucah.ahmaadsadventure.input.KeyManager;
 import me.ilucah.ahmaadsadventure.input.MouseManager;
 import me.ilucah.ahmaadsadventure.level.LevelManager;
 
+import java.util.logging.Logger;
+
 public class Handler {
 
     private Game game;
     private LevelManager levelManager;
+    private Logger logger;
 
     private final EventBus eventBus;
 
     public Handler(Game game){
         this.game = game;
         levelManager = new LevelManager(this);
+        logger = Logger.getGlobal();
+
         eventBus = new EventBus();
     }
 
@@ -48,5 +53,9 @@ public class Handler {
 
     public EventBus getEventBus() {
         return eventBus;
+    }
+
+    public Logger getLogger() {
+        return logger;
     }
 }
