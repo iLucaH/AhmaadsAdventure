@@ -37,6 +37,13 @@ public class Player extends Entity implements Movable, InventoryHolder {
 
     private AnimatorEngine animator;
 
+
+    /*
+    Requires complete clean up.
+    - Gravity is inefficient.
+    - Movement is choppy.
+    - Player model is poorly designed for expansion.
+     */
     public Player(Handler handler, GameCamera camera) {
         super(100, 100, (handler.getWidth() / 2) - 100, (handler.getHeight() / 2) - 100);
         this.handler = handler;
